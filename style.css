@@ -1,5 +1,31 @@
+@property --rotate {
+  syntax: "<angle>";
+  initial-value: 132deg;
+  inherits: false;
+}
+
+:root {
+  --card-height: 65vh;
+  --card-width: calc(var(--card-height) / 1.5);
+}
+
+
 body {
-  background-color: #e5e5e5;
+  min-height: 100vh;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-radius: 50%;
+}
+.cursor {
+  cursor: url("images/cursor_checker.ico"), default;
+}
+
+a {
+  text-decoration: none;
 }
 
 p {
@@ -19,34 +45,52 @@ h1 {
   color: #0d1b2a;
 }
 
-a {
+.social {
   text-decoration: none;
   color: #778da9
 }
 
-a:hover {
+.social:hover {
   background-color: #415a77;
 }
 
 img {
   border-radius: 50%;
-  width: 250px;
+  width: 180px;
 }
 
 .first_part {
     background: #ffffff;
-    padding: 30px;
-    border: 1px solid lightgrey;
+    padding: 80px;
+    border: 2px solid rgb(0, 0, 0);
     width: 1200px;   /* Définit la largeur */
     margin: 0 auto; /* Définit automatiquement les marges à gauche/droite */
     text-align: center;
 }
 
+.second_part {
+  background: #ffffff;
+  padding: 5px;
+  border: 2px solid rgb(0, 0, 0);
+  width: 1350px;   /* Définit la largeur */
+  margin: 0 auto; /* Définit automatiquement les marges à gauche/droite */
+  text-align: center;
+}
+
+.third_part {
+  background: #ffffff;
+  padding: 30px;
+  border: px solid rgb(0, 0, 0);
+  width: 1350px;   /* Définit la largeur */
+  margin: 0 auto; /* Définit automatiquement les marges à gauche/droite */
+  text-align: center;
+}
+
 
 .links {
   background: #ffffff;
-  padding: 30px;
-  border: 1px solid lightgrey;
+  padding: 0px;
+  border: 0x solid lightgrey;
   width: 1200px;   /* Définit la largeur */
   margin: 0 auto; /* Définit automatiquement les marges à gauche/droite */
   text-align: center;
@@ -94,7 +138,6 @@ img {
 }
 
 @media (max-width: 960px) {
-  /* Pour un écran < 960px, cette classe CSS s'applique */
   .first_part {
     width: 700px;
   }
@@ -104,7 +147,6 @@ img {
 }
 
 @media (max-width: 720px) {
-  /* Pour un écran < 720px, cette classe CSS s'applique */
   .first_part {
     width: 500px;
   }
@@ -114,11 +156,292 @@ img {
 }
 
 @media (max-width: 540px) {
-  /* Pour un écran < 540px, cette classe CSS s'applique */
   .first_part {
     width: 300px;
   }
   .links {
     width: 300px;
   }
+}
+
+.card {
+  width: 180px;
+  height: 180px;
+  padding: 0px;
+  position: relative;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  color: rgb(88 199 250 / 0%);
+  cursor: pointer;
+  margin: 50px;
+}
+
+.card:hover {
+  color: rgb(88 199 250 / 100%);
+  transition: color 1s;
+}
+.card:hover:before, .card:hover:after {
+  animation: none;
+  opacity: 0;
+}
+
+
+.card::before {
+  content: "";
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background-image: linear-gradient(
+    var(--rotate)
+    , #5ddcff, #3c67e3 43%, #4e00c2);
+    position: absolute;
+    z-index: -1;
+    top: -1%;
+    left: -2%;
+    animation: spin 2.5s linear infinite;
+}
+
+.card::after {
+  position: absolute;
+  content: "";
+  top: calc(var(--card-height) / 6);
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  transform: scale(0.8);
+  filter: blur(calc(var(--card-height) / 6));
+  background-image: linear-gradient(
+    var(--rotate)
+    , #5ddcff, #3c67e3 43%, #4e00c2);
+    opacity: 1;
+  transition: opacity .5s;
+  animation: spin 2.5s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    --rotate: 0deg;
+  }
+  100% {
+    --rotate: 360deg;
+  }
+}
+
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
+
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: 'Lato';
+}
+
+.container {
+  padding: 20px 0;
+  text-align: center;
+}
+
+.chart {
+  position: relative;
+  display: inline-block;
+  color: #999;
+  font-size: 20px;
+  text-align: center;
+}
+
+.chart figcaption {
+  padding: 50px 25px;
+  width: 100px;
+  height: 50px;
+  border: 20px solid #f0f0f0;
+  border-radius: 100px;
+  line-height: 50px;
+}
+
+.chart img {
+  position: absolute;
+  max-width: 100px;
+  max-height: 100px;
+  background: white;
+}
+
+.html {
+  top: 50px;
+  left: 45px;
+}
+
+.html + svg .outer {
+  stroke: #e34f26;
+}
+
+.css {
+  top: 55px;
+  left: 48px;
+}
+
+.css + svg .outer {
+  stroke: #0d84ce;
+}
+
+.ruby {
+  width: 200px;
+  height: 200px;
+  top: 45px;
+  left: 45px;
+  border-radius: 0px;
+}
+
+.ruby + svg .outer {
+  stroke: #a40c0c;
+}
+
+.chart svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.outer {
+  fill: transparent;
+  stroke: #333;
+  stroke-width: 20;
+  stroke-dasharray: 534;
+  transition: stroke-dashoffset 1s;
+  -webkit-animation-play-state: running;
+
+  -moz-transform: rotate(-89deg) translateX(-190px);
+}
+
+.chart:hover .outer {
+  stroke-dashoffset: 534 !important;
+  -webkit-animation-play-state: paused;
+}
+
+.chart[data-percent='25'] .outer {
+  stroke-dashoffset: 401;
+  -webkit-animation: show25 2s;
+  animation: show25 2s;
+}
+
+@-webkit-keyframes show100 {
+  from {
+    stroke-dashoffset: 537;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes show100 {
+  from {
+    stroke-dashoffset: 537;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@-webkit-keyframes show75 {
+  from {
+    stroke-dashoffset: 537;
+  }
+
+  to {
+    stroke-dashoffset: 134;
+  }
+}
+
+@keyframes show75 {
+  from {
+    stroke-dashoffset: 537;
+  }
+
+  to {
+    stroke-dashoffset: 134;
+  }
+}
+
+@-webkit-keyframes show50 {
+  from {
+    stroke-dashoffset: 537;
+  }
+
+  to {
+    stroke-dashoffset: 267;
+  }
+}
+
+@keyframes show50 {
+  from {
+    stroke-dashoffset: 537;
+  }
+
+  to {
+    stroke-dashoffset: 267;
+  }
+}
+
+@-webkit-keyframes show25 {
+  from {
+    stroke-dashoffset: 537;
+  }
+
+  to {
+    stroke-dashoffset: 401;
+  }
+}
+
+@keyframes show25 {
+  from {
+    stroke-dashoffset: 537;
+  }
+
+  to {
+    stroke-dashoffset: 401;
+  }
+}
+/* END Keyframes for the initial animation */
+
+:root {
+  --bg-color: #ccc;
+  --text-color: #000;
+}
+
+.noise {
+  position: relative;
+  overflow: hidden;
+  width: 1350px;
+  text-align: center;
+  padding: 50px;
+}
+
+.noise::after {
+  content: "";
+  position: absolute;
+  top: -12.5%; left: -12.5%;
+  z-index: -1;
+  width: 125%; height: 125%;
+  background: url(https://user-images.githubusercontent.com/22321142/100630839-55bd1f00-332b-11eb-9e4c-5989758da284.png) repeat center center;
+  opacity: 0.75;
+  animation: noiseMovement 0.09s steps(6) infinite;
+}
+
+@keyframes noiseMovement {
+  0%, 100%  { transform: translate(0,0); }
+  10%       { transform: translate(0%,-10%); }
+  30%       { transform: translate(-10%,5%); }
+  50%       { transform: translate(0%,10%); }
+  70%       { transform: translate(10%,-5%); }
+  90%       { transform: translate(10%,5%); }
+}
+
+.go_back {
+  font-size: 32px;
 }
