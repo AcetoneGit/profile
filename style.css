@@ -1,0 +1,124 @@
+body {
+  background-color: #e5e5e5;
+}
+
+p {
+  font-family: "DM Serif Text", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  color: #0d1b2a;
+}
+
+h1 {
+  font-family: "Red Rose", serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-size: 40px;
+  color: #0d1b2a;
+}
+
+a {
+  text-decoration: none;
+  color: #778da9
+}
+
+a:hover {
+  background-color: #415a77;
+}
+
+img {
+  border-radius: 50%;
+  width: 250px;
+}
+
+.first_part {
+    background: #ffffff;
+    padding: 30px;
+    border: 1px solid lightgrey;
+    width: 1200px;   /* Définit la largeur */
+    margin: 0 auto; /* Définit automatiquement les marges à gauche/droite */
+    text-align: center;
+}
+
+
+.links {
+  background: #ffffff;
+  padding: 30px;
+  border: 1px solid lightgrey;
+  width: 1200px;   /* Définit la largeur */
+  margin: 0 auto; /* Définit automatiquement les marges à gauche/droite */
+  text-align: center;
+}
+
+.list {
+  list-style: none;
+  padding-left: 0px;
+}
+
+.list > li {
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+
+
+.button {
+  font-family: "DM Serif Text", serif;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button:active {
+  box-shadow: 0px 0px 0px 0px;
+  top: 5px;
+  left: 5px;
+}
+
+@media (min-width: 768px) {
+  .button {
+    padding: 0.25em 0.75em;
+  }
+}
+
+@media (max-width: 960px) {
+  /* Pour un écran < 960px, cette classe CSS s'applique */
+  .first_part {
+    width: 700px;
+  }
+  .links {
+    width: 700px;
+  }
+}
+
+@media (max-width: 720px) {
+  /* Pour un écran < 720px, cette classe CSS s'applique */
+  .first_part {
+    width: 500px;
+  }
+  .links {
+    width: 500px;
+  }
+}
+
+@media (max-width: 540px) {
+  /* Pour un écran < 540px, cette classe CSS s'applique */
+  .first_part {
+    width: 300px;
+  }
+  .links {
+    width: 300px;
+  }
+}
